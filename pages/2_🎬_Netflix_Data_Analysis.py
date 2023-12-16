@@ -45,17 +45,18 @@ with st.expander("Check the complete dataset:"):
 
 # ----- Extracting some basic information from the dataset -----
 
-# TODO: Ex 2.2: What is the min and max release years?
+# Ex 2.2: What is the min and max release years?
 min_year = movies_df['release_year'].min()
 max_year = movies_df['release_year'].max()
 
-# TODO: Ex 2.3: How many director names are missing values (NaN)?
+# Ex 2.3: How many director names are missing values (NaN)?
 num_missing_directors = movies_df['director'].isna().sum()
 
-# TODO: Ex 2.4: How many different countries are there in the data?
-n_countries = 230
+# Ex 2.4: How many different countries are there in the data?
+n_countries = movies_df['country'].explode().nunique()
+# In the notebook, there is another way developed with making a list of lists, flattening it and making it a set
 
-# TODO: Ex 2.5: How many characters long are on average the title names?
+# Ex 2.5: How many characters long are on average the title names?
 movies_df['titles_length'] = movies_df['title'].apply(lambda x: len(x))
 avg_title_length = round(movies_df['titles_length'].mean(),2)
 
@@ -104,7 +105,6 @@ st.write("##")
 st.header("Avg Duration of Movies by Year")
 
 movies_df['min_duration']=movies_df['duration'].apply(lambda x: x[:-4])
-movies_df['min_duration']
 
 movies_f_df = movies_df.loc[movies_df['type'] == 'Movie']
 movies_f_df.loc[:,'min_duration']=movies_f_df['min_duration'].astype(int)
