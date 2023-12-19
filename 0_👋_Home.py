@@ -57,7 +57,7 @@ st.write("""
 
 - 🛩️ Previously: Technologist at Tata Steel
 
-- 🏂 Writing at Greek feminist blog, swinning
+- 🏂 Writing at Greek feminist blog, swimming
 
 - 📫 How to reach me: sophia.ntalla@gmail.com
 
